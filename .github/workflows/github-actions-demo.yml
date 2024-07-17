@@ -1,6 +1,17 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+  pull_request:
+    types:
+      - closed
+    branches:
+      - dev
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
